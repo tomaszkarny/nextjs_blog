@@ -19,8 +19,12 @@ module.exports = {
           colors: {} // light theme colors
         },
         dark: {
-          layout: {}, // dark theme layout tokens
-          colors: {} // dark theme colors
+          layout: {
+            fontFamily: 'DM Sans, sans-serif', // set the primary font-family
+          }, 
+          colors: {
+            primary: '#78a17c', // set the primary color
+          } 
         },
         modern: {
           extend: 'dark', // <- inherit default values from dark theme
