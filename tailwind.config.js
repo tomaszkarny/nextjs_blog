@@ -19,12 +19,13 @@ module.exports = {
           colors: {} // light theme colors
         },
         dark: {
-          layout: {
-            fontFamily: 'DM Sans, sans-serif', // set the primary font-family
-          }, 
           colors: {
-            primary: '#78a17c', // set the primary color
-          } 
+            primary: {
+              DEFAULT: "#BEF264",
+              foreground: "#000000",
+            },
+            focus: "#BEF264",
+          },
         },
         modern: {
           extend: 'dark', // <- inherit default values from dark theme
