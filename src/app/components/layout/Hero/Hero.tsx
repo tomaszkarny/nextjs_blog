@@ -4,7 +4,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className='home-hero_top text-5xl'>
+    <div className='home-hero_top text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'>
       <h1
         home-hero_heading='true'
         split-text='true'
