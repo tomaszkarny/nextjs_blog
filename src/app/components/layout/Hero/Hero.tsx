@@ -14,6 +14,14 @@ const Hero = () => {
         </span>
         <span className='line block text-left w-full'>Your Daily Blog</span>
       </h1>
+      <div className="margin-bottom margin-small">
+        <p split-text="true">
+          <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>We help medium-to-large companies</span>
+          <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>and agencies build highly scalable</span>
+          <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>Webflow websites and help them do</span>
+          <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>more in less time.</span>
+        </p>
+      </div>
       <Image
         src='/2.png'
         alt='Hero Image'
