@@ -14,7 +14,7 @@ const Hero = () => {
         </span>
         <span className='line block text-left w-full'>Your Daily Blog</span>
       </h1>
-      <Image src='/2.png' alt='Hero Image' className='w-full h-auto' />
+      <Image src='/2.png' alt='Hero Image' width={500} height={300} className='w-full h-auto' />
     </div>
   )
 }
