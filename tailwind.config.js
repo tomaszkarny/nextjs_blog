@@ -9,60 +9,42 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}' // Dodane dla NextUI
   ],
-
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['DM Sans', 'sans-serif']
+      },
+      apply: {
+        'navbar-link':
+          'inline-block p-2 text-base font-medium no-underline transition-colors duration-300 ease-in-out'
+      }
+    }
+  },
   plugins: [
     require('@tailwindcss/typography'),
     nextui({
-      theme: {
+      themes: {
         light: {
           layout: {}, // light theme layout tokens
-          colors: {} // light theme colors
+          colors: {
+            background: '#FFFFFF',
+            foreground: '#000000',
+            focus: '#ffffff'
+          } // light theme colors
         },
         dark: {
           colors: {
+            background: '#0f1518',
+            foreground: '#d0edd6',
             primary: {
-              DEFAULT: "#BEF264",
-              foreground: "#000000",
+              DEFAULT: '#78a17c',
+              foreground: '#d0edd6',
+              background: '#0f1518'
             },
-            focus: "#BEF264",
-          },
-        },
-        modern: {
-          extend: 'dark', // <- inherit default values from dark theme
-          colors: {
-            background: '#0D001A',
-            foreground: '#ffffff',
-            primary: {
-              50: '#3B096C',
-              100: '#520F83',
-              200: '#7318A2',
-              300: '#9823C2',
-              400: '#c031e2',
-              500: '#DD62ED',
-              600: '#F182F6',
-              700: '#FCADF9',
-              800: '#FDD5F9',
-              900: '#FEECFE',
-              DEFAULT: '#DD62ED',
-              foreground: '#ffffff'
-            },
-            focus: '#F182F6'
-          },
-          layout: {
-            disabledOpacity: '0.3',
-            radius: {
-              small: '1px',
-              medium: '2px',
-              large: '4px'
-            },
-            borderWidth: {
-              small: '1px',
-              medium: '2px',
-              large: '3px'
-            }
+            focus: '#78a17c'
           }
         }
       }
-    }) // Dodane dla NextUI
+    })
   ]
 }
