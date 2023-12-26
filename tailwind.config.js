@@ -41,7 +41,8 @@ module.exports = {
               foreground: '#d0edd6',
               background: '#0f1518'
             },
-            focus: '#78a17c'
+            focus: '#78a17c',
+            hero: '#0f1518' // Add this line
           }
         }
       }

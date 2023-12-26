@@ -4,8 +4,8 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div>
-      {/* Add your Hero section content here */}
+    <div className="bg-background">
+      <h1 className="text-6xl font-bold text-foreground">FIT LIFE TECH INNOVATIONS</h1>
     </div>
   )
 }
