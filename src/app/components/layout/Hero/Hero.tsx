@@ -7,7 +7,7 @@ const Hero = () => {
       <h1
         home-hero_heading='true'
         split-text='true'
-        className='home-hero_heading'
+        className='home-hero_heading mb-4'
       >
         <span className='line block text-left w-full'>
           Fit Life Tech Innovations
