@@ -11,9 +11,9 @@ const Hero = () => {
         className='home-hero_heading'
       >
         <span className='line block text-left w-full'>
-          FIT LIFE TECH INNOVATIONS
+          Fit Life Tech Innovations
         </span>
-        <span className='line block text-left w-full'>YOUR DAILY BLOG</span>
+        <span className='line block text-left w-full'>Your Daily Blog</span>
       </h1>
     </div>
   )
