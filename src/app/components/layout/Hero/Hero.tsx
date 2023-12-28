@@ -9,8 +9,8 @@ const Hero = () => {
           Trusted Webflow Partners for your Marketing & Design team
         </h1>
       </div>
-      <div className='flex flex-1 flex-col sm:flex-row'>
-        <div className='flex flex-col justify-center p-4 sm:p-6 md:p-8 lg:p-10 xl:p-10 w-full sm:w-1/2'>
+      <div className='flex flex-1 flex-col md:flex-row'>
+        <div className='flex flex-col justify-center p-4 sm:p-6 md:p-8 lg:p-10 xl:p-10 w-full'>
           <p className='text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-4'>
             We help medium-to-large companies and agencies build highly scalable
             Webflow websites and help them do more in less time.
