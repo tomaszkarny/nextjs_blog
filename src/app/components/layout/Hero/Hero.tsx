@@ -18,7 +18,7 @@ const Hero = () => {
           <button className='btn-primary self-start'>START A PROJECT</button>
           {/* Replace with your button component */}
         </div>
-        <div className='w-full relative md:block'>
+        <div className='w-full h-full relative md:block'>
           <Image
             src='/2.png'
             alt='Hero Image'
