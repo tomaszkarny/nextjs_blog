@@ -10,9 +10,8 @@ const Hero = () => {
         </h1>
       </div>
       <div className='flex flex-1 flex-col md:flex-row'>
-        <div className='flex flex-col justify-center p-4 sm:p-6 md:p-8 lg:p-10 xl:p-10 w-full h-48'> <!-- Adjust the height as needed -->
-          <p className='text-xs sm:text-sm md:text-base lg:text-5 xl:text-xl mb-4 h-24'> <!-- Adjust the height as needed -->
-            We help medium-to-large companies and agencies build highly scalable
+        <div className='flex flex-col justify-center p-4 sm:p-6 md:p-8 lg:p-10 xl:p-10 w-full h-48'>
+          <p className='text-xs sm:text-sm md:text-base lg:text-5 xl:text-xl mb-4 h-24'>
             Webflow websites and help them do more in less time.
           </p>
         </div>
