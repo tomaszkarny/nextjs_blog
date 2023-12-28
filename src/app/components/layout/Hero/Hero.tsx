@@ -23,6 +23,7 @@ const Hero = () => {
             src='/2.png'
             alt='Hero Image'
             width={500} // Add the width prop
+            height={500} // Add the height prop
             objectFit='contain' // Use 'cover' to ensure the image fully covers the div
             priority // Use priority to hint to the browser that this is an important image
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
