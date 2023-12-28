@@ -3,34 +3,31 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <div className='home-hero_top flex text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'>
-      <div>
-        <h1
-          home-hero_heading='true'
-          split-text='true'
-          className='home-hero_heading mb-8'
-        >
-          <span className='line block text-left w-full'>
-            Fit Life Tech Innovations
-          </span>
-          <span className='line block text-left w-full'>Your Daily Blog</span>
+    <div className='flex flex-col min-h-screen'>
+      <div className='p-10 md:p-20'>
+        <h1 className='text-5xl font-bold mb-4 leading-tight'>
+          Trusted Webflow Partners for your Marketing & Design team
         </h1>
-        <div className="margin-bottom margin-small">
-          <p split-text="true">
-            <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>We help medium-to-large companies</span>
-            <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>and agencies build highly scalable</span>
-            <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>Webflow websites and help them do</span>
-            <span className="line" style={{display: "block", textAlign: "start", width: "100%"}}>more in less time.</span>
+      </div>
+      <div className='flex flex-1 flex-col md:flex-row'>
+        <div className='flex flex-col justify-center p-10 md:p-20 md:w-1/2'>
+          <p className='text-lg mb-4'>
+            We help medium-to-large companies and agencies build highly scalable
+            Webflow websites and help them do more in less time.
           </p>
+          <button className='btn-primary self-start'>START A PROJECT</button>
+          {/* Replace with your button component */}
+        </div>
+        <div className='md:w-1/2 relative'>
+          <Image
+            src='/2.png'
+            alt='Hero Image'
+            layout='fill'
+            objectFit='contain' // Use 'cover' to ensure the image fully covers the div
+            priority // Use priority to hint to the browser that this is an important image
+          />
         </div>
       </div>
-      <Image
-        src='/2.png'
-        alt='Hero Image'
-        width={500}
-        height={300}
-        className='w-full h-auto ml-auto'
-      />
     </div>
   )
 }
