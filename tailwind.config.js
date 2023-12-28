@@ -36,13 +36,18 @@ module.exports = {
           colors: {
             background: '#0f1518',
             foreground: '#d0edd6',
+            darkSeaGreen: '#78a17c',
             primary: {
               DEFAULT: '#78a17c',
               foreground: '#d0edd6',
-              background: '#0f1518'
+              background: '#0f1518',
+              primaryColorGreen: '#abe5b1',
+              primaryColorDark: '#90c0a6',
+              darkGreen: '#1a2327',
+              darkSeaGreen: '#78a17c',
+              textGreen: '#4e905a'
             },
-            focus: '#78a17c',
-            hero: '#0f1518' // Add this line
+            focus: '#78a17c'
           }
         }
       }

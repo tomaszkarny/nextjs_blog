@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import ThemeSwitcher from '@/src/app/components/layout/ThemeSwitcher'
+import ThemeSwitcher from '@/src/app/components/layout/ThemeSwitcher/ThemeSwitcher'
 import {
   Navbar,
   NavbarBrand,

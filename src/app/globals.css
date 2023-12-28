@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   #__next {
     @apply contents;
@@ -12,7 +14,7 @@
   }
 
   body {
-    @apply flex h-full flex-col text-stone-600;
+    @apply flex h-full flex-col;
   }
 
   main {
