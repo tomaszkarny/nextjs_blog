@@ -37,6 +37,8 @@ module.exports = {
             background: '#0f1518',
             foreground: '#d0edd6',
             darkSeaGreen: '#78a17c',
+            darkSlateGrey: '#135545',
+            darkSeaGreen: '#78a17c',
             primary: {
               DEFAULT: '#78a17c',
               foreground: '#d0edd6',
@@ -45,7 +47,8 @@ module.exports = {
               primaryColorDark: '#90c0a6',
               darkGreen: '#1a2327',
               darkSeaGreen: '#78a17c',
-              textGreen: '#4e905a'
+              textGreen: '#4e905a',
+              darkSlateGrey: '#135545'
             },
             focus: '#78a17c'
           }
