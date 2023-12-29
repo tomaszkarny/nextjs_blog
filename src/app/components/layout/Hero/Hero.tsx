@@ -17,7 +17,7 @@ const Hero = () => {
             We help medium-to-large companies and agencies build highly scalable
             Webflow websites and help them do more in less time.
           </p>
-          <div className=' flex flex-wrap gap-4 items-center'>
+          <div className='flex flex-wrap gap-4 items-center justify-center'>
             <Button
               radius='lg'
               size='lg'
