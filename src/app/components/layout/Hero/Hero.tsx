@@ -21,7 +21,7 @@ const Hero = () => {
             <Button
               radius='lg'
               size='lg'
-              className='bg-gradient-to-tr from-foreground to-darkSeaGreen'
+              className='bg-gradient-to-tr from-foreground to-darkSeaGreen w-1/2' // increased width to 50%
             >
               Button
             </Button>
