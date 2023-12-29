@@ -23,7 +23,7 @@ const Hero = () => {
               size='lg'
               className='bg-gradient-to-tr from-darkSlateGrey to-darkSeaGreen text-green shadow-lg'
             >
-              Button
+              START A PROJECT
             </Button>
           </div>
         </div>
