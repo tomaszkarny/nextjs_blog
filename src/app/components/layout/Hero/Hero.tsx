@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import heroImg from '@/public/heroImg.png'
+import { Button } from '@nextui-org/react'
 
 const Hero = () => {
   return (
@@ -16,7 +17,17 @@ const Hero = () => {
             We help medium-to-large companies and agencies build highly scalable
             Webflow websites and help them do more in less time.
           </p>
+          <div className=' flex flex-wrap gap-4 items-center'>
+            <Button
+              radius='lg'
+              size='lg'
+              className='bg-gradient-to-tr from-foreground to-darkSeaGreen'
+            >
+              Button
+            </Button>
+          </div>
         </div>
+
         <div className='w-full h-full relative md:block'>
           <Image src={heroImg} alt='Hero Image' />
         </div>
