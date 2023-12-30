@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className='flex flex-col min-h-screen'>
       <div className='p-3 sm:p-6 md:p-8 lg:p-10 xl:p-20'>
-        <h1 className=' sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-5 leading-tight'>
+        <h1 className='text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-5 leading-tight'>
           Trusted Webflow Partners for your Marketing & Design team
         </h1>
       </div>
@@ -19,16 +19,16 @@ const Hero = () => {
           </p>
           <div className='flex flex-wrap gap-4 items-center justify-center'>
             <Button
-              radius='lg'
+              radius='sm'
               size='lg'
-              className='bg-gradient-to-tr from-darkSlateGrey to-darkSeaGreen text-green shadow-lg'
+              className='bg-darkSlateGrey  text-primaryColorDark shadow-lg text-center tracking-wide uppercase  font-medium leading-snug no-underline px-6 py-3 w-64 text-xs sm:text-sm md:text-sm lg:text-lg'
             >
               START A PROJECT
             </Button>
           </div>
         </div>
 
-        <div className='w-full h-full relative md:block'>
+        <div className='w-full h-full relative md:block  mb-4 sm:mb-0 sm:pt-8'>
           <Image src={heroImg} alt='Hero Image' />
         </div>
       </div>
