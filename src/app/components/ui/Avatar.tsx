@@ -23,7 +23,7 @@ const Avatar = ({ name, picture }: AvatarProps): JSX.Element | null => {
           name={name}
         />
       </div>
-      <div className='font-semibold'>{name}</div>
+      <div className='font-light'>{name}</div>
     </div>
   )
 }

@@ -70,14 +70,19 @@ const Posts = () => {
   }, [])
 
   return (
-    <section className='section'>
-      <div className='container'>
+    <section className='section bg-background w-full mx-auto'>
+      <h1 className='text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 leading-tight'>
+        Latest Blog Posts
+      </h1>
+      <div className='container text-red'>
         {loading ? (
           <Skeleton />
         ) : (
-          <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-10'>
+          <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 sm:gap-y-0 sm:gap-x-10'>
             {posts.map(post => (
-              <PostCard key={post.slug} post={post} />
+              <li key={post.slug} className='mb-4 sm:mb-0'>
+                <PostCard post={post} />
+              </li>
             ))}
           </ul>
         )}
@@ -87,4 +92,3 @@ const Posts = () => {
 }
 
 export default Posts
-

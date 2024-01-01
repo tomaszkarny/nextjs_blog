@@ -29,7 +29,12 @@ module.exports = {
           colors: {
             background: '#FFFFFF',
             foreground: '#000000',
-            focus: '#ffffff'
+            primaryColor: '#FFFFFF',
+            focus: '#ffffff',
+            primaryColor: '#FFFFFF',
+            secondaryColor: '#1a2327',
+            neutral: '#adbbc1',
+            neutral2: '#e7edf0'
           } // light theme colors
         },
         dark: {
@@ -39,6 +44,13 @@ module.exports = {
             darkSeaGreen: '#78a17c',
             darkSlateGrey: '#135545',
             darkSeaGreen: '#78a17c',
+            primaryColor: '#d0edd6',
+            secondaryColor: '#1a2327',
+            neutral: '#adbbc1',
+            neutral2: '#e7edf0',
+            textGreen: '#4e905a',
+            darkGreen: '#1a2327',
+
             primary: {
               DEFAULT: '#78a17c',
               foreground: '#d0edd6',

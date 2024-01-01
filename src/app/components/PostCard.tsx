@@ -1,8 +1,9 @@
+import React from 'react'
 import Link from 'next/link'
 import Avatar from '@/src/app/components/ui/Avatar'
 import DateComponent from '@/src/app/components/ui/DateComponent'
-import ContentfulImage from '@/src/app/components/ui/ContentfulImage'
-import { PostProps, DirectImageDetails } from '@/types/contentfulTypes'
+import { Card, CardHeader, CardBody, Image } from '@nextui-org/react'
+import { PostProps } from '@/types/contentfulTypes'
 
 interface PostCardProps {
   post: PostProps
@@ -12,34 +13,38 @@ const PostCard = ({ post }: PostCardProps) => {
   const { title, slug, excerpt, coverImage, author, date } = post
 
   return (
-    <li className='rounded-md overflow-hidden shadow-md'>
+    <Card className='h-full py-4 rounded-xl bg-darkGreen shadow-lg transition duration-200 ease-in-out transform hover:shadow-2xl hover:scale-105'>
       <Link href={`/posts/${slug}`} aria-label={title}>
-        <div className='mb-2'>
+        <CardHeader className='pb-0 pt-2 px-4 flex-col items-start'>
+          <h3 className='text-3xl  leading-tight tracking-wide'>{title}</h3>
+          <div className='flex items-center mt-2 text-neutral font-light '>
+            <Avatar name={author.name} picture={author.picture} />
+
+            <DateComponent
+              dateString={date}
+              className='text-xs text-gray-400 ml-2'
+            />
+          </div>
+        </CardHeader>
+        <CardBody className='overflow-visible py-2'>
           {coverImage?.url && (
-            <ContentfulImage
-              name={`Cover Image for ${title}`}
+            <Image
+              isBlurred
               alt={`Cover Image for ${title}`}
+              className='object-cover rounded-xl'
               src={
                 coverImage.url.startsWith('//')
                   ? `https:${coverImage.url}`
                   : coverImage.url
               }
-              width={coverImage.details?.image?.width}
-              height={coverImage.details?.image?.height}
+              width='100%'
+              height='auto'
             />
           )}
-        </div>
-        <div className='p-4'>
-          <h3 className='text-xl mb-1 leading-snug'>{title}</h3>
-          <div className='text-sm mb-4 text-gray-400'>
-            <DateComponent dateString={date} />
-          </div>
-          <p className='text-base mb-4'>{excerpt}</p>
-
-          <Avatar name={post.author.name} picture={post.author.picture} />
-        </div>
+          {/* <p className='text-base p-4'>{excerpt}</p> */}
+        </CardBody>
       </Link>
-    </li>
+    </Card>
   )
 }
 
