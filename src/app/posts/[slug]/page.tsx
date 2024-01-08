@@ -1,12 +1,16 @@
 'use client'
-import PostBody from '@/src/app/components/PostBody'
-import PostHeader from '@/src/app/components/PostHeader'
-import PreviewAlert from '@/src/app/components/ui/PreviewAlert'
-import Skeleton from '@/src/app/components/ui/Skeleton'
+import dynamic from 'next/dynamic'
 import { client, previewClient } from '@lib/contentful/client'
 import { useRouter, useParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { PostProps } from '@/types/contentfulTypes'
+
+const PostBody = dynamic(() => import('@/src/app/components/PostBody'))
+const PostHeader = dynamic(() => import('@/src/app/components/PostHeader'))
+const PreviewAlert = dynamic(
+  () => import('@/src/app/components/ui/PreviewAlert')
+)
+const Skeleton = dynamic(() => import('@/src/app/components/ui/Skeleton'))
 
 const Post = () => {
   const router = useRouter()

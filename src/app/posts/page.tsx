@@ -1,71 +1,100 @@
 'use client'
 
 import { client } from '@/lib/contentful/client'
+import { EntryCollection, EntrySkeletonType } from 'contentful'
 import PostCard from '@/src/app/components/PostCard'
 import Skeleton from '@/src/app/components/ui/Skeleton'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { PostProps } from '@/types/contentfulTypes'
 
 const Posts = () => {
   const [posts, setPosts] = useState<PostProps[]>([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await client.getEntries({ content_type: 'post' })
-        console.log('Surowe dane z Contentful:', response)
+  const [response, setResponse] =
+    useState<EntryCollection<EntrySkeletonType> | null>(null)
 
-        const assetsMap =
-          response.includes?.Asset?.reduce((acc: any, asset: any) => {
-            acc[asset.sys.id] = asset.fields
-            return acc
-          }, {}) || {}
+  const fetchPosts = async () => {
+    try {
+      const response = await client.getEntries({ content_type: 'post' })
+      console.log('Surowe dane z Contentful:', response)
+      setResponse(response)
+    } catch (error) {
+      console.error('Error fetching posts:', error)
+      setPosts([])
+      setLoading(false)
+    }
+  }
 
-        const entriesMap =
-          response.includes?.Entry?.reduce((acc: any, entry: any) => {
-            acc[entry.sys.id] = entry.fields
-            return acc
-          }, {}) || {}
+  const assetsMap =
+    response?.includes?.Asset?.reduce((acc: any, asset: any) => {
+      acc[asset.sys.id] = asset.fields
+      return acc
+    }, {}) || {}
 
-        const formattedPosts: PostProps[] = response.items.map(
-          (item: any): PostProps => {
-            const author = entriesMap[item.fields.author.sys.id]
-            author.picture = {
-              ...author.picture,
-              url: assetsMap[author.picture.sys.id]?.file?.url
-            }
+  const entriesMap =
+    response?.includes?.Entry?.reduce((acc: any, entry: any) => {
+      acc[entry.sys.id] = entry.fields
+      return acc
+    }, {}) || {}
 
-            let coverImage = undefined
-            if (item.fields.coverImage) {
-              coverImage = {
-                title: item.fields.coverImage.fields.title,
-                description: item.fields.coverImage.fields.description,
-                ...item.fields.coverImage.fields.file,
-                url: assetsMap[item.fields.coverImage.sys.id]?.file?.url
-              }
-            }
-
-            return {
-              title: item.fields.title,
-              slug: item.fields.slug,
-              date: item.fields.date,
-              content: item.fields.content,
-              author: author,
-              coverImage: coverImage
-            }
-          }
-        )
-
-        setPosts(formattedPosts)
-        setLoading(false)
-      } catch (error) {
-        console.error('Error fetching posts:', error)
-        setPosts([])
-        setLoading(false)
-      }
+  const formattedPosts: PostProps[] = useMemo(() => {
+    if (!response) {
+      return []
     }
 
+    const assetsMap =
+      response.includes?.Asset?.reduce((acc, asset) => {
+        acc[asset.sys.id] = asset.fields
+        return acc
+      }, {}) || {}
+
+    const entriesMap =
+      response.includes?.Entry?.reduce((acc, entry) => {
+        acc[entry.sys.id] = entry.fields
+        return acc
+      }, {}) || {}
+
+    return response.items.map((item: any): PostProps => {
+      const authorEntry = entriesMap[item.fields.author.sys.id]
+      const author = {
+        ...authorEntry,
+        picture: {
+          ...authorEntry.picture,
+          url: assetsMap[authorEntry.picture.sys.id]?.file?.url
+        }
+      }
+
+      let coverImage = undefined
+      if (item.fields.coverImage) {
+        const coverImageData = item.fields.coverImage.fields
+        coverImage = {
+          title: coverImageData.title,
+          description: coverImageData.description,
+          ...coverImageData.file,
+          url: assetsMap[item.fields.coverImage.sys.id]?.file?.url
+        }
+      }
+
+      return {
+        title: item.fields.title,
+        slug: item.fields.slug,
+        date: item.fields.date,
+        content: item.fields.content,
+        author: author,
+        coverImage: coverImage
+      }
+    })
+  }, [response])
+
+  useEffect(() => {
+    if (response) {
+      setPosts(formattedPosts)
+      setLoading(false)
+    }
+  }, [response, formattedPosts])
+
+  useEffect(() => {
     fetchPosts()
   }, [])
 
