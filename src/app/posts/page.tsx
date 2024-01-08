@@ -71,7 +71,7 @@ const Posts = () => {
 
   return (
     <section className='section bg-background w-full mx-auto'>
-      <h1 className='text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 leading-tight'>
+      <h1 className='text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 leading-tight pb-10'>
         Latest Blog Posts
       </h1>
       <div className='container text-red'>
