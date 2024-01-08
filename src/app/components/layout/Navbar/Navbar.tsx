@@ -1,21 +1,20 @@
 'use client'
 import React, { useState } from 'react'
+import NavbarBrandComponent from '@/src/app/components/layout/Navbar/NavbarBrandComponent'
+import NavbarMenuItemsComponent from '@/src/app/components/layout/Navbar/NavbarMenuItemsComponent'
+import DropdownComponent from '@/src/app/components/layout/Navbar/DropdownComponent'
 import ThemeSwitcher from '@/src/app/components/layout/ThemeSwitcher/ThemeSwitcher'
 import {
   Navbar,
-  NavbarBrand,
   NavbarMenuToggle,
-  NavbarMenuItem,
-  NavbarMenu,
   NavbarContent,
-  NavbarItem,
-  Link,
-  Button
+  NavbarMenu,
+  NavbarMenuItem,
+  Link
 } from '@nextui-org/react'
 
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
   const menuItems = [
     'Profile',
     'Dashboard',
@@ -36,62 +35,35 @@ const NavbarComponent = () => {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
       >
-        <NavbarContent className='sm:hidden' justify='start'>
+        {/* Hamburger Menu and Brand visible only on small screens */}
+        <NavbarContent className='sm:hidden flex justify-between items-center'>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           />
+          <NavbarBrandComponent />
+          <ThemeSwitcher />
         </NavbarContent>
 
-        <NavbarContent className='sm:hidden pr-3' justify='center'>
-          <NavbarBrand>
-            <p className='font-bold text-inherit' color='foreground'>
-              My app
-            </p>
-          </NavbarBrand>
-        </NavbarContent>
-
+        {/* Full Navigation visible only on larger screens */}
         <NavbarContent className='hidden sm:flex gap-4' justify='center'>
-          <NavbarBrand>
-            <p className='font-bold text-inherit'>My app</p>
-          </NavbarBrand>
-          <NavbarItem>
-            <Link className='navbar-link' color='foreground' href='/posts'>
-              Posts
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link
-              className='navbar-link'
-              href='/'
-              color='foreground'
-              aria-current='page'
-            >
-              Home
-            </Link>
-          </NavbarItem>
+          <NavbarBrandComponent />
+          <NavbarMenuItemsComponent />
+          <DropdownComponent triggerLabel='Dropdown Menu' items={menuItems} />
+          <DropdownComponent
+            triggerLabel='Subpages ▼'
+            items={['Subpage 1', 'Subpage 2']}
+          />
         </NavbarContent>
 
-        <NavbarContent justify='end'>
-          <NavbarItem>
-            <ThemeSwitcher />
-          </NavbarItem>
+        <NavbarContent justify='end' className='hidden sm:flex'>
+          <ThemeSwitcher />
         </NavbarContent>
 
-        <NavbarMenu>
+        {/* Mobile Menu */}
+        <NavbarMenu className='sm:hidden'>
           {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                className='w-full'
-                color={
-                  index === 2
-                    ? 'warning'
-                    : index === menuItems.length - 1
-                    ? 'danger'
-                    : 'foreground'
-                }
-                href='#'
-                size='lg'
-              >
+            <NavbarMenuItem key={index}>
+              <Link className='w-full' href='#'>
                 {item}
               </Link>
             </NavbarMenuItem>
