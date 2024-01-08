@@ -2,6 +2,7 @@ import './globals.css'
 import { Providers } from './providers'
 import type { Metadata } from 'next'
 import Navbar from '@/src/app/components/layout/Navbar/Navbar'
+import Footer from '@/src/app/components/layout/Footer/Footer'
 
 import { DM_Sans } from 'next/font/google'
 
@@ -30,11 +31,7 @@ export default function RootLayout({
 
           <main>{children}</main>
 
-          <footer className=' text-sm font-medium uppercase text-stone-400 px-8 py-4'>
-            <div className='container'>
-              <p>Footer</p>
-            </div>
-          </footer>
+          <Footer />
         </Providers>
       </body>
     </html>
