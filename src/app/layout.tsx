@@ -3,7 +3,6 @@ import { Providers } from './providers'
 import type { Metadata } from 'next'
 import Navbar from '@/src/app/components/layout/Navbar/Navbar'
 import Footer from '@/src/app/components/layout/Footer/Footer'
-
 import { DM_Sans } from 'next/font/google'
 
 const DMsans = DM_Sans({
@@ -22,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body className={`${DMsans.variable} font-sans`}>
         <Providers>
           <header>

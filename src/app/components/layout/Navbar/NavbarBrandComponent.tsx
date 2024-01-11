@@ -1,4 +1,3 @@
-'use client'
 import { NavbarBrand } from '@nextui-org/react'
 
 const NavbarBrandComponent = () => (

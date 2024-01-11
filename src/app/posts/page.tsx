@@ -1,5 +1,4 @@
 'use client'
-
 import { client } from '@/lib/contentful/client'
 import { EntryCollection, EntrySkeletonType } from 'contentful'
 import PostCard from '@/src/app/components/PostCard'

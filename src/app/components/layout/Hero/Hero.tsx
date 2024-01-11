@@ -29,7 +29,13 @@ const Hero = () => {
         </div>
 
         <div className='w-full h-full relative md:block  mb-4 sm:mb-0'>
-          <Image src={heroImg} alt='Hero Image' width={1200} height={800} />
+          <Image
+            src={heroImg}
+            alt='Hero Image'
+            width={1200}
+            height={800}
+            priority
+          />
         </div>
       </div>
     </div>

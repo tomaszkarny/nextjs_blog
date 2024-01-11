@@ -1,3 +1,4 @@
+'use client'
 import { formatDate } from '@lib/contentful/utils'
 
 interface DateProps {

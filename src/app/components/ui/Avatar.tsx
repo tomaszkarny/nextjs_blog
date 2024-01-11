@@ -1,3 +1,4 @@
+'use client'
 import ContentfulImage from '@/src/app/components/ui/ContentfulImage'
 import { DirectImageDetails } from '@/types/contentfulTypes'
 

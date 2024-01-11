@@ -1,3 +1,4 @@
+'use client'
 import RichText from '@/src/app/components/ui/RichText'
 import { PostProps } from '@/types/contentfulTypes'
 

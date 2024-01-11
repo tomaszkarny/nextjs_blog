@@ -1,5 +1,4 @@
 'use client'
-
 import React from 'react'
 import {
   Dropdown,
@@ -21,13 +20,15 @@ const DropdownComponent: React.FC<DropdownComponentProps> = ({
 }) => (
   <Dropdown>
     <NavbarItem>
-      <DropdownTrigger>
+      <DropdownTrigger aria-label={triggerLabel}>
         <Button>{triggerLabel}</Button>
       </DropdownTrigger>
     </NavbarItem>
-    <DropdownMenu>
+    <DropdownMenu aria-label='Menu'>
       {items.map((item, index) => (
-        <DropdownItem key={index}>{item}</DropdownItem>
+        <DropdownItem key={index} aria-label={item}>
+          {item}
+        </DropdownItem>
       ))}
     </DropdownMenu>
   </Dropdown>

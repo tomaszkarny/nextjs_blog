@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Avatar from '@/src/app/components/ui/Avatar'
 import ContentfulImage from '@/src/app/components/ui/ContentfulImage'
