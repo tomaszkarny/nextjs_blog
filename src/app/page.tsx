@@ -1,3 +1,4 @@
+'use client'
 import Hero from '@/src/app/components/layout/Hero/Hero'
 import Posts from '@/src/app/posts/page'
 

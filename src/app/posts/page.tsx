@@ -1,29 +1,53 @@
 'use client'
+
+import React, { useEffect, useState, useMemo, useRef } from 'react'
 import { client } from '@/lib/contentful/client'
 import { EntryCollection, EntrySkeletonType } from 'contentful'
 import PostCard from '@/src/app/components/PostCard'
+import Pagination from '@/src/app/components/ui/Pagination'
 import Skeleton from '@/src/app/components/ui/Skeleton'
-import { useEffect, useState, useMemo } from 'react'
 import { PostProps } from '@/types/contentfulTypes'
+import { useSearch } from '@/contexts/SearchContext'
 
 const Posts = () => {
-  const [posts, setPosts] = useState<PostProps[]>([])
+  const { searchTerm, postsRef } = useSearch()
   const [loading, setLoading] = useState(true)
-
   const [response, setResponse] =
     useState<EntryCollection<EntrySkeletonType> | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
 
-  const fetchPosts = async () => {
-    try {
-      const response = await client.getEntries({ content_type: 'post' })
-      console.log('Surowe dane z Contentful:', response)
-      setResponse(response)
-    } catch (error) {
-      console.error('Error fetching posts:', error)
-      setPosts([])
-      setLoading(false)
+  const limit = 10 // Items per page
+
+  const headerContent = searchTerm
+    ? `Search results for: "${searchTerm}"`
+    : 'Latest Blog Posts'
+
+  useEffect(() => {
+    const fetchPosts = async (page: number, limit: number) => {
+      setLoading(true)
+      try {
+        const response = await client.getEntries({
+          content_type: 'post',
+          'fields.title[match]': searchTerm,
+          skip: (page - 1) * limit,
+          limit: limit
+        })
+        console.log('Surowe dane z Contentful:', response)
+        setResponse(response)
+        // Assuming your API gives you the total count of items, calculate total pages
+        const totalItems = response.total || 0 // Replace with actual total count if available
+        setTotalPages(Math.ceil(totalItems / limit))
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+        // setPosts([])
+      } finally {
+        setLoading(false)
+      }
     }
-  }
+
+    fetchPosts(currentPage, limit)
+  }, [searchTerm, currentPage, limit])
 
   const assetsMap =
     response?.includes?.Asset?.reduce((acc: any, asset: any) => {
@@ -38,7 +62,7 @@ const Posts = () => {
     }, {}) || {}
 
   const formattedPosts: PostProps[] = useMemo(() => {
-    if (!response) {
+    if (!response || !response.items) {
       return []
     }
 
@@ -86,33 +110,33 @@ const Posts = () => {
     })
   }, [response])
 
-  useEffect(() => {
-    if (response) {
-      setPosts(formattedPosts)
-      setLoading(false)
-    }
-  }, [response, formattedPosts])
-
-  useEffect(() => {
-    fetchPosts()
-  }, [])
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber)
+  }
 
   return (
-    <section className='section bg-background w-full mx-auto'>
+    <section className='section bg-background w-full mx-auto' ref={postsRef}>
       <h1 className='text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 leading-tight pb-10'>
-        Latest Blog Posts
+        {headerContent}
       </h1>
       <div className='container text-red'>
         {loading ? (
           <Skeleton />
         ) : (
-          <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 sm:gap-y-0 sm:gap-x-10'>
-            {posts.map(post => (
-              <li key={post.slug} className='mb-4 sm:mb-0'>
-                <PostCard post={post} />
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 sm:gap-y-0 sm:gap-x-10'>
+              {formattedPosts.map(post => (
+                <li key={post.slug} className='mb-4 sm:mb-0'>
+                  <PostCard post={post} />
+                </li>
+              ))}
+            </ul>
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
+          </>
         )}
       </div>
     </section>

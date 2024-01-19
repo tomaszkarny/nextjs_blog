@@ -15,14 +15,14 @@ const Post = () => {
   const [post, setPost] = useState<PostProps | null>(null)
   const [preview, setPreview] = useState(false)
 
-  useEffect(() => {
-    const draftCookie = document.cookie
-      .split('; ')
-      .find(row => row.startsWith('draftMode='))
-    if (draftCookie) {
-      setPreview(true)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const draftCookie = document.cookie
+  //     .split('; ')
+  //     .find(row => row.startsWith('draftMode='))
+  //   if (draftCookie) {
+  //     setPreview(true)
+  //   }
+  // }, [])
 
   useEffect(() => {
     const fetchData = async () => {

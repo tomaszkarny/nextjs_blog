@@ -4,6 +4,7 @@ import NavbarBrandComponent from '@/src/app/components/layout/Navbar/NavbarBrand
 import NavbarMenuItemsComponent from '@/src/app/components/layout/Navbar/NavbarMenuItemsComponent'
 import DropdownComponent from '@/src/app/components/layout/Navbar/DropdownComponent'
 import ThemeSwitcher from '@/src/app/components/layout/ThemeSwitcher/ThemeSwitcher'
+import SearchBar from '@/src/app/components/layout/SearchBar/SearchBar'
 import {
   Navbar,
   NavbarMenuToggle,
@@ -36,11 +37,12 @@ const NavbarComponent = () => {
         onMenuOpenChange={setIsMenuOpen}
       >
         {/* Hamburger Menu and Brand visible only on small screens */}
-        <NavbarContent className='sm:hidden flex justify-between items-center'>
+        <NavbarContent className='sm:hidden flex justify-between items-center gap-4'>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           />
           <NavbarBrandComponent />
+          <SearchBar />
           <ThemeSwitcher />
         </NavbarContent>
 
@@ -56,6 +58,7 @@ const NavbarComponent = () => {
         </NavbarContent>
 
         <NavbarContent justify='end' className='hidden sm:flex'>
+          <SearchBar />
           <ThemeSwitcher />
         </NavbarContent>
 
