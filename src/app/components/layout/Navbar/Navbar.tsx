@@ -52,7 +52,7 @@ const NavbarComponent = () => {
           <NavbarMenuItemsComponent />
           <DropdownComponent triggerLabel='Dropdown Menu' items={menuItems} />
           <DropdownComponent
-            triggerLabel='Subpages ▼'
+            triggerLabel='Subpages'
             items={['Subpage 1', 'Subpage 2']}
           />
         </NavbarContent>
