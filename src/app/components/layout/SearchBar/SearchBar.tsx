@@ -62,12 +62,10 @@ const SearchBar = () => {
           ]
         }}
         startContent={
-          <Button
+          <SearchIcon
+            className='text-foreground dark:text-white/90  w-7 h-7 cursor-pointer'
             onClick={handleSearch}
-            className='bg-transparent border-0 shadow-none p-0 w-auto inline-flex items-center justify-center focus:outline-none'
-          >
-            <SearchIcon className='text-foreground dark:text-white/90  w-7 h-7' />
-          </Button>
+          />
         }
       />
     </div>

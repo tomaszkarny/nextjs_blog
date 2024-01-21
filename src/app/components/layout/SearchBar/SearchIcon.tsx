@@ -2,11 +2,13 @@ import React from 'react'
 
 interface SearchIconProps {
   className?: string
+  onClick?: () => void
 }
 
-const SearchIcon = ({ className }: SearchIconProps) => {
+const SearchIcon = ({ className, onClick }: SearchIconProps) => {
   return (
     <svg
+      onClick={onClick}
       xmlns='http://www.w3.org/2000/svg'
       className={className}
       viewBox='1 -1 25 24'

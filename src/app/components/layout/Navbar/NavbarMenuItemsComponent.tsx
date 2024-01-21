@@ -1,3 +1,4 @@
+'use client'
 import { NavbarItem, Link } from '@nextui-org/react'
 
 const NavbarMenuItemsComponent = () => (

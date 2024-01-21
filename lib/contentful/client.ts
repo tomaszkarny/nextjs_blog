@@ -14,5 +14,5 @@ export const previewClient = createClient({
   accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN!
 })
 
-// export const getClient = (isPreviewMode: boolean) => isPreviewMode ? previewClient : client
+
 
