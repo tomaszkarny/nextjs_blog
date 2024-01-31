@@ -9,6 +9,7 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}' // Dodane dla NextUI
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {

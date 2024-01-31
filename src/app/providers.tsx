@@ -7,15 +7,13 @@ import { SearchProvider } from '@/contexts/SearchContext'
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <SearchProvider>
-      <NextUIProvider>
-        <NextThemesProvider
-          attribute='class'
-          defaultTheme='dark'
-          themes={['light', 'dark']}
-        >
-          {children}
-        </NextThemesProvider>
-      </NextUIProvider>
+      <NextThemesProvider
+        attribute='class'
+        defaultTheme='dark'
+        themes={['light', 'dark']}
+      >
+        {children}
+      </NextThemesProvider>
     </SearchProvider>
   )
 }
