@@ -35,6 +35,7 @@ const NavbarComponent = () => {
         isBordered
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
+        className='h-20'
       >
         {/* Hamburger Menu and Brand visible only on small screens */}
         <NavbarContent className='sm:hidden flex justify-between items-center gap-4'>
@@ -47,19 +48,18 @@ const NavbarComponent = () => {
         </NavbarContent>
 
         {/* Full Navigation visible only on larger screens */}
-        <NavbarContent className='hidden sm:flex gap-4' justify='center'>
-          <NavbarBrandComponent />
+        <NavbarContent className='hidden sm:flex items-center w-full px-4'>
           <NavbarMenuItemsComponent />
-          <DropdownComponent triggerLabel='Dropdown Menu' items={menuItems} />
-          <DropdownComponent
-            triggerLabel='Subpages'
-            items={['Subpage 1', 'Subpage 2']}
-          />
-        </NavbarContent>
 
-        <NavbarContent justify='end' className='hidden sm:flex'>
-          <SearchBar />
-          <ThemeSwitcher />
+          <div className='flex items-center gap-4'>
+            <DropdownComponent triggerLabel='Dropdown Menu' items={menuItems} />
+            <DropdownComponent
+              triggerLabel='Subpages'
+              items={['Subpage 1', 'Subpage 2']}
+            />
+            <SearchBar />
+            <ThemeSwitcher />
+          </div>
         </NavbarContent>
 
         {/* Mobile Menu */}
