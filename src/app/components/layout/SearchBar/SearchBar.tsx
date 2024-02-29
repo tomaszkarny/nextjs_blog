@@ -32,8 +32,9 @@ const SearchBar = () => {
   }
 
   return (
-    <div className='w-small sm:w-1/2 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-foreground to-primaryColor text-background shadow-lg'>
+    <div className='w-full sm:w-3/4 lg:w-2/3 xl:w-3/4 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-foreground to-primaryColor text-background shadow-lg'>
       <Input
+        id='searchInput'
         value={searchTerm}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
