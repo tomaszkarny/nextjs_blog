@@ -35,8 +35,8 @@ const Posts = () => {
         })
         console.log('Surowe dane z Contentful:', response)
         setResponse(response)
-        // Assuming your API gives you the total count of items, calculate total pages
-        const totalItems = response.total || 0 // Replace with actual total count if available
+
+        const totalItems = response.total || 0
         setTotalPages(Math.ceil(totalItems / limit))
       } catch (error) {
         console.error('Error fetching posts:', error)
